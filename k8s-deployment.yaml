@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-flask
+  labels:
+    app: helloworld-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloworld-flask
+  template:
+    metadata:
+      labels:
+        app: helloworld-flask
+    spec:
+      containers:
+        - name: helloworld-flask
+          image: pravietis/helloworld-flask
+          ports:
+            - containerPort: 32777
